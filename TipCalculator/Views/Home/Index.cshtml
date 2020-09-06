@@ -1,0 +1,49 @@
+﻿@model Calculator
+
+@{
+    ViewBag.Title = "Tip Calculator";
+}
+
+<div asp-validation-summary="All"></div>
+
+<form asp-action="Index" method="post">
+    <!--
+     COMPLETE INSTRUCTIONS IN Models FIRST, then Controllers SECOND, then return here!!! 
+
+     STEP 5: Using the Index.cshtml view file from the Future Value program as a guide
+     add a <div> tag containing a label and input for the MealCost property that you 
+     created in your TipCalculator model
+     -->
+    <div>
+        <label asp-for="MealCost">Meal Cost:</label>
+        <input asp-for="MealCost" />
+    </div>
+    <!--
+     STEP 6: Using the Future Value label in the Future Value project's Index.cshtml vie file
+     as a guide (i.e. Viewbag.FV.ToString), add a second label to each of the <div> tags 
+     below.  Each label should display the corresponding ViewBag property that you added in the Controller, 
+     but formatted as a 2 digit currency string (again, just as in the Future Value CSHTML file
+     except that program is using an input instead of a label)
+    -->
+
+    <!--
+    Test the application to see if you successfully made all modifications/additions.    
+    -->
+
+    <div>
+        <label>15% tip:</label>
+        <label>@ViewBag.Fifteen.ToString("c2")</label>
+    </div>
+    <div>
+        <label>20% tip:</label>
+        @ViewBag.Twenty.ToString("c2")
+    </div>
+    <div>
+        <label>25% tip:</label>
+        @ViewBag.TwentyFive.ToString("c2")
+    </div>
+    <div>
+        <button type="submit">Calculate</button>
+        <a asp-action="Index">Clear</a>
+    </div>
+</form>
